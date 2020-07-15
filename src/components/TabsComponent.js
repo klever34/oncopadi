@@ -26,12 +26,16 @@ import Consultation from '../screens/tabs/consultation/Consultation';
 import MedicalRecords from '../screens/tabs/medical-records/MedicalRecords';
 import Settings from '../screens/tabs/settings/Settings';
 
+import History from '../screens/History';
+import Notifications from '../screens/Notifications';
+
 const SymptomsStack = createStackNavigator();
 const SymptomsStackScreen = () => {
   return (
     <SymptomsStack.Navigator headerMode="none">
       <SymptomsStack.Screen name="Symptoms" component={Symptoms} />
-      {/* <SymptomsStack.Screen name="Notifications" component={Notifications} /> */}
+      <SymptomsStack.Screen name="History" component={History} />
+      <SymptomsStack.Screen name="Notifications" component={Notifications} />
     </SymptomsStack.Navigator>
   );
 };
@@ -41,6 +45,8 @@ const CommunityStackScreen = () => {
   return (
     <CommunityStack.Navigator headerMode="none">
       <CommunityStack.Screen name="Community" component={Community} />
+      <CommunityStack.Screen name="History" component={History} />
+      <CommunityStack.Screen name="Notifications" component={Notifications} />
     </CommunityStack.Navigator>
   );
 };
@@ -50,6 +56,11 @@ const ConsultationStackScreen = () => {
   return (
     <ConsultationStack.Navigator headerMode="none">
       <ConsultationStack.Screen name="Consultation" component={Consultation} />
+      <ConsultationStack.Screen name="History" component={History} />
+      <ConsultationStack.Screen
+        name="Notifications"
+        component={Notifications}
+      />
     </ConsultationStack.Navigator>
   );
 };
@@ -62,6 +73,11 @@ const MedicalRecordsStackScreen = () => {
         name="MedicalRecords"
         component={MedicalRecords}
       />
+      <MedicalRecordsStack.Screen name="History" component={History} />
+      <MedicalRecordsStack.Screen
+        name="Notifications"
+        component={Notifications}
+      />
     </MedicalRecordsStack.Navigator>
   );
 };
@@ -71,6 +87,8 @@ const SettingsStackScreen = () => {
   return (
     <SettingsStack.Navigator headerMode="none">
       <SettingsStack.Screen name="Settings" component={Settings} />
+      <SettingsStack.Screen name="History" component={History} />
+      <SettingsStack.Screen name="Notifications" component={Notifications} />
     </SettingsStack.Navigator>
   );
 };

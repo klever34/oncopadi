@@ -9,35 +9,30 @@ import {TextInput} from 'react-native-paper';
 const Header = (props) => {
   const [showModal, setModal] = React.useState(false);
   useEffect(() => {}, []);
+
+  const iconPressed = (icon) => {
+    props.selectedIcon(icon);
+  }
+
   return (
     <View style={styles.headerContainer}>
       <Ionicons
         name={'ios-time-sharp'}
         color={colors.bgColor}
         style={{fontSize: 20, paddingHorizontal: 5}}
+        onPress={() =>
+          iconPressed('History')
+        }
       />
       <Text style={styles.headerTitle}>{props.title}</Text>
       <Ionicons
         name={'md-notifications'}
         color={colors.bgColor}
         style={{fontSize: 20, paddingHorizontal: 5}}
+        onPress={() =>
+          iconPressed('Notifications')
+        }
       />
-      {/* <Modal
-        isVisible={showModal}
-        keyboardTopOffset={0}
-        onBackdropPress={() => setModal(false)}
-        onBackButtonPress={() => setModal(false)}
-        style={{
-          backgroundColor: '#fff',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginVertical: 50,
-        }}>
-        <View style={{flex: 1}}>
-          <Text>I am the modal content!</Text>
-          <TextInput placeholder={'enter'} style={{height: 200}} />
-        </View>
-      </Modal> */}
     </View>
   );
 };

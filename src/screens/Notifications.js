@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {View, Text, Image, StyleSheet, FlatList} from 'react-native';
-import Header from '../../../components/Header';
-import {colors} from '../../../constants/index';
+import {colors} from '../constants/index';
 
-class Community extends Component {
+class Notifications extends Component {
   state = {};
+
   render() {
     const data = [
       {
@@ -36,12 +36,21 @@ class Community extends Component {
         image: '../../../assets/images/woman.png',
       },
     ];
-    const iconSelected = (icon) =>{
-      this.props.navigation.push(icon)
-    }
     return (
-      <View style={{flex: 1, backgroundColor: '#F8F6FE'}}>
-        <Header title={'Community'}  selectedIcon={iconSelected}/>
+      <View style={{flex: 1, backgroundColor: '#F8F6FE', paddingTop: 40}}>
+        <Text
+        onPress={() => this.props.navigation.goBack()}
+          style={{
+            fontFamily: 'Poppins-Regular',
+            fontSize: 14,
+            paddingLeft: 20,
+          }}>
+          Back
+        </Text>
+        <Text
+          style={{fontFamily: 'Poppins-Bold', fontSize: 24, paddingLeft: 20}}>
+          Notifications
+        </Text>
         <View style={{flex: 1}}>
           <FlatList
             data={data}
@@ -57,7 +66,7 @@ class Community extends Component {
             )}
             renderItem={(cardItem) => (
               <View style={[styles.card, styles.cardRow]}>
-                <Image source={require('../../../assets/images/juan.png')} />
+                <Image source={require('../assets/images/juan.png')} />
                 <View style={{padding: 5, flex: 1, marginLeft: 5}}>
                   <Text style={styles.smallText}>WELLBEING</Text>
                   <Text style={styles.bigText}>10 Ways To Eat Healthy</Text>
@@ -112,4 +121,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Community;
+export default Notifications;
